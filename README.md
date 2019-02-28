@@ -14,3 +14,4 @@
  - Stock movement table
  - Report
 (https://ibb.co/xFd0706)
+https://overdoseflow.github.io/shopping/
