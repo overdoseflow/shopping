@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STicaretModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cariler">
+    <Key>
+      <PropertyRef Name="CariID" />
+    </Key>
+    <Property Name="CariID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StokID" Type="int" Nullable="false" />
+    <Property Name="MusteriID" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="date" Nullable="false" />
+    <Property Name="Miktar" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tutar" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MusteriSoyadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Adresi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TelNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Telno2" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Stoklar">
+    <Key>
+      <PropertyRef Name="StokID" />
+    </Key>
+    <Property Name="StokID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StokAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StokKodu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OlcuBirimi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="GrupAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="KDV" Type="varchar" MaxLength="3" />
+    <Property Name="BirimFiyati" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GirisMiktari" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Cariler_Musteriler">
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="1" />
+    <End Role="Cariler" Type="Self.Cariler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="Cariler">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cariler_Stoklar">
+    <End Role="Stoklar" Type="Self.Stoklar" Multiplicity="1" />
+    <End Role="Cariler" Type="Self.Cariler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stoklar">
+        <PropertyRef Name="StokID" />
+      </Principal>
+      <Dependent Role="Cariler">
+        <PropertyRef Name="StokID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STicaretModelStoreContainer">
+    <EntitySet Name="Cariler" EntityType="Self.Cariler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stoklar" EntityType="Self.Stoklar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cariler_Musteriler" Association="Self.FK_Cariler_Musteriler">
+      <End Role="Musteriler" EntitySet="Musteriler" />
+      <End Role="Cariler" EntitySet="Cariler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cariler_Stoklar" Association="Self.FK_Cariler_Stoklar">
+      <End Role="Stoklar" EntitySet="Stoklar" />
+      <End Role="Cariler" EntitySet="Cariler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

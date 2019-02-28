@@ -1,0 +1,75 @@
+﻿@model Sedas_Ticaret.Models.Stoklar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stoklar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StokAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokKodu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokKodu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OlcuBirimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OlcuBirimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrupAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KDV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KDV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirimFiyati)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirimFiyati)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GirisMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GirisMiktari)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StokID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

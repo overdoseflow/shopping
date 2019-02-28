@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Sedas_Ticaret.Models.Stoklar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StokAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StokKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OlcuBirimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KDV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirimFiyati)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GirisMiktari)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StokAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StokKodu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OlcuBirimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KDV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimFiyati)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GirisMiktari)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StokID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StokID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StokID })
+        </td>
+    </tr>
+}
+
+</table>

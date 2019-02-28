@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STicaretModelStoreContainer" CdmEntityContainer="STicaretEntities">
+    <EntitySetMapping Name="Carilers">
+      <EntityTypeMapping TypeName="STicaretModel.Cariler">
+        <MappingFragment StoreEntitySet="Cariler">
+          <ScalarProperty Name="CariID" ColumnName="CariID" />
+          <ScalarProperty Name="StokID" ColumnName="StokID" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musterilers">
+      <EntityTypeMapping TypeName="STicaretModel.Musteriler">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="MusteriSoyadi" ColumnName="MusteriSoyadi" />
+          <ScalarProperty Name="Adresi" ColumnName="Adresi" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="Telno2" ColumnName="Telno2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stoklars">
+      <EntityTypeMapping TypeName="STicaretModel.Stoklar">
+        <MappingFragment StoreEntitySet="Stoklar">
+          <ScalarProperty Name="StokID" ColumnName="StokID" />
+          <ScalarProperty Name="StokAdi" ColumnName="StokAdi" />
+          <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+          <ScalarProperty Name="OlcuBirimi" ColumnName="OlcuBirimi" />
+          <ScalarProperty Name="GrupAdi" ColumnName="GrupAdi" />
+          <ScalarProperty Name="KDV" ColumnName="KDV" />
+          <ScalarProperty Name="BirimFiyati" ColumnName="BirimFiyati" />
+          <ScalarProperty Name="GirisMiktari" ColumnName="GirisMiktari" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

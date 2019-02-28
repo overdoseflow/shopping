@@ -1,0 +1,59 @@
+﻿@model Sedas_Ticaret.Models.Musteriler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Musteriler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriSoyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telno2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telno2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MusteriID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

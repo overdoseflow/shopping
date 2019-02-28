@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PartialLogin.cshtml";
+}
+
+
+<script lang="javascript">
+        function check(form) {
+            if (form.userid.value == "aysegul@mail.com" && form.passwordid.value == "123") {
+                open("http://localhost:51880/Stoklar/Create")
+                close("http://localhost:51880/Home/Index")
+            }
+            else {
+                alert("Kullanıcı adı veya parolanız yanlış.")
+            }
+        }
+</script>

@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Sedas_Ticaret.Models.Cariler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rapor</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tutar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Musteriler.MusteriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stoklar.StokAdi)
+        </th>
+        <th>
+            İşlem Durumu:
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tutar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Musteriler.MusteriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stoklar.StokAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CariID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CariID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CariID })
+        </td>
+       
+            {
+                <td>
+                    Satış İşlemi
+                </td>
+       
+            }
+        
+	{
+	         <td>
+                 Alış İşlemi
+             </td>
+	}
+      
+    </tr>
+}
+
+</table>

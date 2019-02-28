@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STicaretModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cariler">
+    <Key>
+      <PropertyRef Name="CariID" />
+    </Key>
+    <Property Name="CariID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StokID" Type="Int32" Nullable="false" />
+    <Property Name="MusteriID" Type="Int32" Nullable="false" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Miktar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Musteriler" Relationship="Self.FK_Cariler_Musteriler" FromRole="Cariler" ToRole="Musteriler" />
+    <NavigationProperty Name="Stoklar" Relationship="Self.FK_Cariler_Stoklar" FromRole="Cariler" ToRole="Stoklar" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MusteriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MusteriSoyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telno2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Carilers" Relationship="Self.FK_Cariler_Musteriler" FromRole="Musteriler" ToRole="Cariler" />
+  </EntityType>
+  <EntityType Name="Stoklar">
+    <Key>
+      <PropertyRef Name="StokID" />
+    </Key>
+    <Property Name="StokID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StokAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OlcuBirimi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GrupAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KDV" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="BirimFiyati" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GirisMiktari" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Carilers" Relationship="Self.FK_Cariler_Stoklar" FromRole="Stoklar" ToRole="Cariler" />
+  </EntityType>
+  <Association Name="FK_Cariler_Musteriler">
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="1" />
+    <End Role="Cariler" Type="Self.Cariler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="Cariler">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cariler_Stoklar">
+    <End Role="Stoklar" Type="Self.Stoklar" Multiplicity="1" />
+    <End Role="Cariler" Type="Self.Cariler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stoklar">
+        <PropertyRef Name="StokID" />
+      </Principal>
+      <Dependent Role="Cariler">
+        <PropertyRef Name="StokID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STicaretEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carilers" EntityType="Self.Cariler" />
+    <EntitySet Name="Musterilers" EntityType="Self.Musteriler" />
+    <EntitySet Name="Stoklars" EntityType="Self.Stoklar" />
+    <AssociationSet Name="FK_Cariler_Musteriler" Association="Self.FK_Cariler_Musteriler">
+      <End Role="Musteriler" EntitySet="Musterilers" />
+      <End Role="Cariler" EntitySet="Carilers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cariler_Stoklar" Association="Self.FK_Cariler_Stoklar">
+      <End Role="Stoklar" EntitySet="Stoklars" />
+      <End Role="Cariler" EntitySet="Carilers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
